@@ -1,0 +1,16 @@
+server:
+  port: 8080
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: order-service.yaml
+              uri: lb://order-service.yaml
+              predicates:
+                - Path=/api/order/**
+            - id: product-service
+              uri: lb://product-service
+              predicates:
+                - Path=/api/product/**npm install -g @ghgrab/ghgrab
